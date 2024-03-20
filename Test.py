@@ -1,18 +1,11 @@
 class ElectricCar:
-    def __init__(self, owner):
-        self._owner = owner
+    def __new__(cls, *args, **kwargs):
+        print('Вызов метода __new__()')
+        object.__new__(cls)
 
-    @property
-    def owner(self):
-        return self._owner
-
-    @owner.setter
-    def set_owner(self, owner):
-        self._owner = owner
+    def __init__(self, color):
+        print('Вызов метода __init__()')
+        self.color = color
 
 
-car = ElectricCar('Elon')
-
-car.set_owner = 'Gvido'
-
-print(car.owner)
+car = ElectricCar('yellow')
